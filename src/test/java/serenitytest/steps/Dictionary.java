@@ -7,7 +7,7 @@ import org.jbehave.core.annotations.When;
 import net.thucydides.core.annotations.Steps;
 import serenitytest.steps.serenity.EndUserSteps;
 
-public class DefinitionSteps {
+public class Dictionary {
 
     @Steps
     EndUserSteps endUser;
