@@ -14,10 +14,10 @@ import net.thucydides.core.pages.PageObject;
 @DefaultUrl("http://en.wiktionary.org/wiki/Wiktionary")
 public class WikiDummyPage extends PageObject {
 
-	By searchTerms = By.name("search");
-	By lookupButton = By.name("go");
-	By ol = By.tagName("ol");
-	By li = By.tagName("li");
+	private By searchTerms = By.name("search");
+	private By lookupButton = By.name("go");
+	private By ol = By.tagName("ol");
+	private By li = By.tagName("li");
 
     public void enterKeywords(String keyword) {
 		find(searchTerms).type(keyword);
