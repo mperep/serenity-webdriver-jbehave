@@ -1,7 +1,7 @@
 package serenitytest.pages;
 
-import static java.util.stream.Collectors.toList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -30,7 +30,13 @@ public class WikiDummyPage extends PageObject {
     public List<String> getDefinitions() {
         WebElementFacade definitionList = find(ol);
         List<WebElement> results = definitionList.findElements(li);
-        return results.stream().map(WebElement::getText).collect(toList());
+        List<String> stringsNames = new ArrayList<String>();
+        for (WebElement i: results){
+            stringsNames.add (i.getText());
+        }
+        return stringsNames;
+
+        //return results.stream().map(WebElement::getText).collect(toList());
     }
 
 }
