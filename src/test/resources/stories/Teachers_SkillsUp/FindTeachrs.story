@@ -6,10 +6,10 @@ I want to look up teachers in SkillsUp school
 
 Scenario: Find teacher 'Александр Галковский'
 Given the user is on the Our Team page
-When the user click on teacher 'Александр Галковский'
+When the user find teacher 'Александр Галковский'
 Then they should see the name 'Александр Галковский'
 
 Scenario: Find cource for teacher 'Александр Галковский'
 Given the user is on the Teacher page
-When the user look up cource for teacher 'Александр Галковский'
-Then they should see the name of cource for teacher 'Александр Галковский'
+When the user click on card of teacher 'Александр Галковский'
+Then they should see the cource 'Diving into Java'
