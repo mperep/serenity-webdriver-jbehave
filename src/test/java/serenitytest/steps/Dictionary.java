@@ -1,5 +1,6 @@
 package serenitytest.steps;
 
+import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -37,11 +38,13 @@ public class Dictionary {
     }
 
     @When("the user find teacher '$teacher'")
+    @Alias("the user find teacher <teacher>")
     public void whenTheUserFindTeacher(String teacher){
         endUser.openTeacherPage(teacher);
     }
 
     @Then("they should see the name '$name'")
+    @Alias("they should see the name <name>")
     public void thenTheyShouldSeeTheNameOfTeacher(String name){
         endUser.shouldSeeNameOfTeacher(name);
     }
