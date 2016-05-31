@@ -7,12 +7,12 @@ I want to look up teachers in SkillsUp school
 Scenario: Find teachers
 Given the user is on the Our Team page
 When the user find teacher <teacher>
-Then they should see the name <name>
+Then they should see the name <name> and cource <cource>
 
 Examples:
-|teacher||name|
-|Александр Галковский||Александр Галковский|
-|Михаил Чокан||Михаил Чокан|
+|teacher||name||cource|
+|Александр Галковский||Александр Галковский||Diving into Java|
+|Михаил Чокан||Михаил Чокан||Координатор учебного курса|
 
 Scenario: Find cource for teacher 'Александр Галковский'
 Given the user is on the Teacher page
