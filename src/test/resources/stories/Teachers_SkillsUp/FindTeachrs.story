@@ -5,22 +5,24 @@ As an SkillsUp student
 I want to look up teachers in SkillsUp school
 
 Scenario: Find teachers
-Given the user is on the Our Team page
-When the user find teacher <teacher>
-Then they should see the name <name> and cource <cource>
+Given the user is on the Home page
+When the user go to Coache Page
+Then they should see the name <name>
 
 Examples:
-|teacher||name||cource|
-|Александр Галковский||Александр Галковский||Diving into Java|
-|Михаил Чокан||Михаил Чокан||Руководитель учебного курса|
+|name|
+|Александр Галковский|
+|Михаил Чокан|
+|Артем Карпов|
+|Ева Корнеплянская|
+|Илья|
 
-Scenario: Find cource for teacher 'Александр Галковский'
-Given the user is on the Teacher page
-When the user click on card of teacher 'Александр Галковский'
-Then they should see the cource 'Diving into Java'
-
-Scenario: Find all teachers
+Scenario: Find cources for teachers
 Given the user is on the Our Team page
 Then they should see the name and cource contains:
 |name|cource|
-|Александр Галковский|Diving into Java|
+|Александр Галковский||Diving into Java|
+|Михаил Чокан||Руководитель учебного курса|
+|Артем Карпов||Автоматизация тестирования ПО|
+|Ева Корнеплянская||психология и музыка|
+|Илья||Административная и операционная поддержка деятельности учебного центра|

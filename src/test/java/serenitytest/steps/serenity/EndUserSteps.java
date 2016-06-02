@@ -1,58 +1,45 @@
 package serenitytest.steps.serenity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertTrue;
 
+import gherkin.lexer.Sk;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import serenitytest.pages.NewPageSkillsUp;
-import serenitytest.pages.WikiDummyPage;
+import serenitytest.pages.SkillsUpMainPage;
 
 public class EndUserSteps extends ScenarioSteps {
 
-    WikiDummyPage wikiDummyPage;
     NewPageSkillsUp newPageSkillsUp;
+    SkillsUpMainPage skillsUpMainPage;
 
     @Step
-    public void enters(String keyword) {
-        wikiDummyPage.enterKeywords(keyword);
-    }
-
+    public void goToHomePage(){
+        newPageSkillsUp.open();}
     @Step
-    public void starts_search() {
-        wikiDummyPage.lookupTerms();
+    public void goToCoachPage(){
+        skillsUpMainPage.goToCoachPage();
     }
-
-    @Step
-    public void should_see_definition(String definition) {
-        assertThat(wikiDummyPage.getDefinitions(), hasItem(containsString(definition)));
-    }
-
-    @Step
-    public void is_the_home_page() {
-        wikiDummyPage.open();
-    }
-
-    @Step
-    public void looks_for(String term) {
-        enters(term);
-        starts_search();
-    }
-
     @Step
     public void goToTeacherPage(){
         newPageSkillsUp.open();
-        newPageSkillsUp.goToCoachPage();}
+        skillsUpMainPage.goToCoachPage();}
 
     @Step
-    public void openTeacherPage(String cardCoach){newPageSkillsUp.openPersonalInfoPage(cardCoach);}
+    public void openTeacherPage(String cardCoach){
+        newPageSkillsUp.openPersonalInfoPage(cardCoach);
+    }
 
     @Step
-    public void shouldSeeNameOfTeacher(String nameCoach){assertTrue(newPageSkillsUp.searchPersonalPage(nameCoach));}
+    public void shouldSeeNameOfTeacher(String nameCoach){
+        assertTrue(skillsUpMainPage.checkThatPersonIsPresented(nameCoach));
+    }
 
     @Step
-    public void shouldSeeCourceForTeacher(String nameCource){assertTrue(newPageSkillsUp.searchCourcesOfCoach(nameCource));}
+    public void shouldSeeCourceForTeacher(String nameCource){
+        assertTrue(newPageSkillsUp.searchCourcesOfCoach(nameCource));
+    }
 
 }
