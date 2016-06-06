@@ -1,0 +1,4 @@
+Search to find information using search field
+In order to find information in site
+As a user
+I want to be able to look up detail information from search result

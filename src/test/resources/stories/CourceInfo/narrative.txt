@@ -1,0 +1,4 @@
+Search for cost and size of cource
+In order to find cource and find out cost and size of cource
+As a user
+I want to be able to look up cost and size of cource in SkillsUp school

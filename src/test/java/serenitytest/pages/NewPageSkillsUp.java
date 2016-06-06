@@ -45,4 +45,5 @@ public class NewPageSkillsUp extends PageObject {
         return find(infoAboutCoach).getText().contains(cources);
     }
 
+
 }
