@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,9 +16,10 @@ import java.util.List;
  */
 @DefaultUrl("http://skillsup.ua/")
 public class PageTrainings extends PageObject {
-    private By training = By.xpath("//a[@href='http://skillsup.ua/training.aspx']");
-    private By cources = By.xpath("//a[@href='http://skillsup.ua/training/courses.aspx']");
-    private By titlecources = By.cssSelector("div.title>a");
+    private By training = By.xpath(".//*[@id='mi1']");
+    private By cources = By.xpath("//a[@href='/training/courses/']");
+    //private By cources = By.xpath("#menu1078>ul>li>a");
+    private By titlecources = By.cssSelector(".title>a");
     private By text = By.cssSelector(".cell.left.padTopBottom");
 
     public void goToCourcesTab() { // method move to page "Курсы"
@@ -38,7 +40,16 @@ public class PageTrainings extends PageObject {
         }
     }
 
-    public boolean costOfCource(String cost){
+    public List<String> getDetailsOfCourse() {
+        List<String> textList = new ArrayList();
+        List<WebElementFacade> element = findAll(text);
+        for (WebElement i : element) {
+            textList.add(i.getText());
+        }
+        return textList;
+    }
+
+    /*public boolean costOfCource(String cost){
         WebElementFacade costCource = find(text);
         return costCource.getText().contains(cost);
     }
@@ -46,5 +57,5 @@ public class PageTrainings extends PageObject {
     public boolean sizeOfCource(String fullsize){
         WebElementFacade sizeCource = find(text);
         return sizeCource.getText().contains(fullsize);
-    }
+    }*/
 }

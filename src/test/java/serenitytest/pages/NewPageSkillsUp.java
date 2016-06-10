@@ -18,14 +18,13 @@ import java.util.List;
 @DefaultUrl("http://skillsup.ua/")
 public class NewPageSkillsUp extends PageObject {
     private By memberclass = By.className("name");
-    private By searchheader = By.xpath("//div[@class='greenHeader']");
     private By infoAboutCoach = By.className("text");
     private String coach;
 
 
     public void openPersonalInfoPage(String name){
-        List<WebElementFacade> webElements = findAll(memberclass);
-        for (WebElement i : webElements){
+        List<WebElementFacade> element = findAll(memberclass);
+        for (WebElement i : element){
             if (i.getText().contains(name)){
                 i.click();
                 break;
@@ -33,16 +32,8 @@ public class NewPageSkillsUp extends PageObject {
         }
     }
 
-    public Boolean searchPersonalPage(String person){
-        openPersonalInfoPage(coach);
-        System.out.println(find(searchheader).getText());
-        return find(searchheader).getText().contains(person);
-    }
-
-    public Boolean searchCourcesOfCoach(String cources){
-        openPersonalInfoPage(coach);
-        System.out.println(find(infoAboutCoach).getText());
-        return find(infoAboutCoach).getText().contains(cources);
+    public boolean searchCourcesOfCoach(String coach){
+        return find(infoAboutCoach).getText().contains(coach);
     }
 
 

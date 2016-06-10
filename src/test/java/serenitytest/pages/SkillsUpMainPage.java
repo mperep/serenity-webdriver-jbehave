@@ -16,6 +16,7 @@ import java.util.List;
 public class SkillsUpMainPage extends PageObject {
     private By linkourteam = By.linkText("Наша команда");
     private By memberclass = By.className("name");
+    private By positionclass = By.className("position");
 
     public void goToCoachPage() {
         WebElement goToCoachPage = find(linkourteam);
@@ -31,7 +32,18 @@ public class SkillsUpMainPage extends PageObject {
         return stringsNames;
     }
 
-    public Boolean checkThatPersonIsPresented(String teacher) {
+    public List<String> findCoachPosition() {
+        List<WebElementFacade> listpositions = findAll(positionclass);
+        List<String> stringsPositions = new ArrayList();
+        for (WebElement i : listpositions) {
+            stringsPositions.add(i.getText());
+        }
+        return stringsPositions;
+    }
+
+
+   public Boolean checkThatPersonIsPresented(String teacher) {
         return findCoachNmae().contains(teacher);
     }
+
 }
